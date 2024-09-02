@@ -1,4 +1,5 @@
 import ImageCarousel from "@/components/general/carousel/ImageCarousel";
+import Count from "@/components/sections/products/[id]/Count";
 import Sizes from "@/components/sections/products/[id]/Sizes";
 import React from "react";
 
@@ -8,7 +9,7 @@ const page = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <ImageCarousel />
         <div className="px-4">
-          <h1 className="text-4xl mb-2 font-semibold text-red-500">
+          <h1 className={` text-4xl mb-2 font-semibold text-red-700`}>
             Nazwa produktu
           </h1>
           <h3 className="mb-2 text-gray-500">Spodnie</h3>
@@ -20,6 +21,8 @@ const page = () => {
           </p>
           <h3 className="font-semibold text-xl mb-2">Rozmiary</h3>
           <Sizes />
+          <h3 className="font-semibold text-xl my-2">Ilość</h3>
+          <Count />
           <button className="border-2 px-4 py-2 mt-4">Dodaj do koszyka</button>
         </div>
       </div>

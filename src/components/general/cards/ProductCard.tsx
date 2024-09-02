@@ -13,7 +13,7 @@ const ProductCard = () => {
         className="object-cover w-[100%] aspect-square"
       />
       <div className="mt-2">
-        <h3 className=" font-semibold text-red-600">Bluza</h3>
+        <h3 className=" font-semibold text-xl text-red-600">Spodnie</h3>
         <p className=" text-sm">60.99ZŁ</p>
       </div>
     </Link>

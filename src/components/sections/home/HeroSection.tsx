@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { diploma } from "@/fonts/font-init";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -22,10 +23,11 @@ const HeroSection = () => {
               className={` ${diploma.className} border-2 border-red-600 rounded-sm py-2 px-4 bg-red-600`}>
               Promocje
             </button>
-            <button
+            <Link
+              href="/products"
               className={` ${diploma.className} border-2 border-red-600 rounded-sm py-2 px-4 `}>
               Produkty
-            </button>
+            </Link>
           </div>
         </div>
         {/*

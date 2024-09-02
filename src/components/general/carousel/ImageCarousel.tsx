@@ -1,7 +1,8 @@
 "use client";
-import React, { LegacyRef, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { FaArrowAltCircleLeft, FaArrowAltCircleRight } from "react-icons/fa";
+import { diploma } from "@/fonts/font-init";
 
 const ImageCarousel = () => {
   const wrapperRef = useRef<HTMLDivElement | null>(null);
@@ -64,7 +65,7 @@ const ImageCarousel = () => {
         {images.map((img, key) => (
           <div
             key={key}
-            className="min-w-[100%] min-h-[100%] bg-black flex justify-center">
+            className="min-w-[100%] min-h-[100%] bg-red-700 flex justify-center">
             <Image
               className="h-[100%] w-auto"
               width={400}
@@ -81,7 +82,8 @@ const ImageCarousel = () => {
           className="text-red-500 duration-200  hover:text-red-300 cursor-pointer"
         />
       </div>
-      <div className="text-white absolute right-4 bottom-4">
+      <div
+        className={`text-white absolute right-4 bottom-4 ${diploma.className}`}>
         {currentIndex + 1} / {images.length}
       </div>
     </div>

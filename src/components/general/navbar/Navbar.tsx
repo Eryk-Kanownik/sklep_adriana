@@ -22,16 +22,20 @@ const Navbar = () => {
           isMenuUnfolded ? "scale-y-100" : "scale-y-0"
         } md:scale-y-100 md:flex-row md:mt-0 duration-200 origin-top`}>
         <NavbarListItem
-          path="/"
+          path="/products"
           text="Produkty"
           onClick={onClickNavbarListItem}
         />
         <NavbarListItem
-          path="/"
+          path="/cart"
           text="Koszyk"
           onClick={onClickNavbarListItem}
         />
-        <NavbarListItem path="/" text="O nas" onClick={onClickNavbarListItem} />
+        <NavbarListItem
+          path="/about-us"
+          text="O nas"
+          onClick={onClickNavbarListItem}
+        />
       </ul>
       <div className="md:hidden absolute top-8 right-8">
         <FaBars
