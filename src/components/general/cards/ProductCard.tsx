@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ProductCard = () => {
   return (
-    <Link href="/product/1">
+    <Link href="/products/1">
       <Image
         src="https://picsum.photos/200/300"
         width={200}
