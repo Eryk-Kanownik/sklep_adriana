@@ -6,6 +6,7 @@ katergoryzować to na ciuchy
 
 
 Produkt -> 
+    kategoria(przykład:spodnie) ->
         kategoria
         zdjęcia
         rozmiar ->
@@ -13,4 +14,6 @@ Produkt ->
         cena
         nazwa
         opis
+    ilość
+
 

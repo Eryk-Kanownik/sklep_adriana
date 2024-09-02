@@ -1,14 +1,13 @@
-import localFont from "next/font/local";
-
 import { diploma } from "@/fonts/font-init";
+import Link from "next/link";
 
 const NavbarLogo = () => {
   return (
-    <div>
+    <Link href="/">
       <p className={`${diploma.className} text-red-600 text-xl`}>
         Sklep Adriana
       </p>
-    </div>
+    </Link>
   );
 };
 

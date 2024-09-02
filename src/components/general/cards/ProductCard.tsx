@@ -10,7 +10,7 @@ const ProductCard = () => {
         width={200}
         height={200}
         alt="product photo"
-        className="object-cover w-[100%] aspect-square rounded-md"
+        className="object-cover w-[100%] aspect-square"
       />
       <div className="mt-2">
         <h3 className=" font-semibold text-red-600">Bluza</h3>

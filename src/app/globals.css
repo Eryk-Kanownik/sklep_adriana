@@ -8,5 +8,6 @@
 
 body {
   /* @apply bg-gradient-to-b from-black to-gray-950; */
-  @apply bg-slate-950;
+  /* @apply bg-slate-950; */
+  @apply bg-black;
 }
