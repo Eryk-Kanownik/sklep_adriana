@@ -21,15 +21,10 @@ const Navbar = () => {
       <ul
         className={`flex flex-col mt-6 gap-5 ${
           isMenuUnfolded ? "scale-y-100" : "scale-y-0"
-        } md:scale-y-100 md:flex-row md:mt-0 duration-200 origin-top`}>
+        } md:scale-y-100 md:flex-row md:items-center md:mt-0 duration-200 origin-top`}>
         <NavbarListItem
           path="/products"
           text="Produkty"
-          onClick={onClickNavbarListItem}
-        />
-        <NavbarCart
-          path="/cart"
-          text="Koszyk"
           onClick={onClickNavbarListItem}
         />
         <NavbarListItem
@@ -40,6 +35,11 @@ const Navbar = () => {
         <NavbarListItem
           path="/admin/create-product"
           text="Utwórz produkt"
+          onClick={onClickNavbarListItem}
+        />
+        <NavbarCart
+          path="/cart"
+          text="Koszyk"
           onClick={onClickNavbarListItem}
         />
       </ul>
