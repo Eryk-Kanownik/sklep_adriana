@@ -1,6 +1,5 @@
+import AddProductToCartForm from "@/components/forms/AddProductToCartForm";
 import ImageCarousel from "@/components/general/carousel/ImageCarousel";
-import Count from "@/components/sections/products/[id]/Count";
-import Sizes from "@/components/sections/products/[id]/Sizes";
 import React from "react";
 
 const page = () => {
@@ -19,11 +18,7 @@ const page = () => {
             reprehenderit. Minus, commodi odio. Autem, ea! Vero, similique
             aliquid amet asperiores quaerat et.
           </p>
-          <h3 className="font-semibold text-xl mb-2">Rozmiary</h3>
-          <Sizes />
-          <h3 className="font-semibold text-xl my-2">Ilość</h3>
-          <Count />
-          <button className="border-2 px-4 py-2 mt-4">Dodaj do koszyka</button>
+          <AddProductToCartForm />
         </div>
       </div>
     </div>

@@ -13,8 +13,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Trousers {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+model ProductObject {
+  id          String @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+}
+
+model Pants {
+  id          String      @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  sizes       PantsSize[]
+}
+
+model PantsSize {
+  id       String  @id @default(auto()) @map("_id") @db.ObjectId
+  pants    Pants?  @relation(fields: [pantsId], references: [id])
+  pantsId  String? @db.ObjectId
+  quantity Int
 }
 
 model Gloves {

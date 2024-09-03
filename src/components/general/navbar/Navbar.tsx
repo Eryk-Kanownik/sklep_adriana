@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import NavbarLogo from "./NavbarLogo";
 import NavbarListItem from "./NavbarListItem";
 import { FaBars } from "react-icons/fa";
+import NavbarCart from "./NavbarCart";
 
 const Navbar = () => {
   const [isMenuUnfolded, setIsMenuUnfolded] = useState(false);
@@ -15,7 +16,7 @@ const Navbar = () => {
     <nav
       className={`text-red-500 ${
         isMenuUnfolded ? "bg-black" : ""
-      } p-8 flex flex-col md:flex-row md:justify-between fixed top-0 left-0 right-0 z-20`}>
+      } pl-4 py-8 pr-8 lg:p-8 flex flex-col md:flex-row md:justify-between fixed top-0 left-0 right-0 z-20`}>
       <NavbarLogo />
       <ul
         className={`flex flex-col mt-6 gap-5 ${
@@ -26,7 +27,7 @@ const Navbar = () => {
           text="Produkty"
           onClick={onClickNavbarListItem}
         />
-        <NavbarListItem
+        <NavbarCart
           path="/cart"
           text="Koszyk"
           onClick={onClickNavbarListItem}
@@ -34,6 +35,11 @@ const Navbar = () => {
         <NavbarListItem
           path="/about-us"
           text="O nas"
+          onClick={onClickNavbarListItem}
+        />{" "}
+        <NavbarListItem
+          path="/admin/create-product"
+          text="Utwórz produkt"
           onClick={onClickNavbarListItem}
         />
       </ul>

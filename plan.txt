@@ -17,3 +17,19 @@ Produkt ->
     ilość
 
 
+Produkt
+    Obiekt
+    Kategoria
+        Rozmiary
+
+Koszulka
+    Obiekt
+        -nazwa
+        -opis
+        -cena
+    Kategoria
+        -nazwa
+        Rozmiary
+            -s
+            -m
+            -l
