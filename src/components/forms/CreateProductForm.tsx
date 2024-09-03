@@ -83,8 +83,8 @@ const CreateProductForm = () => {
         <div>
           <h2>Rozmiary</h2>
           <div>
-            {sizes.map((s) => (
-              <p>{s}</p>
+            {sizes.map((s, key: React.Key) => (
+              <p key={key}>{s}</p>
             ))}
           </div>
         </div>
