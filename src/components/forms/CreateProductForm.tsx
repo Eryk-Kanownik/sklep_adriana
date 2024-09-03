@@ -98,7 +98,7 @@ const CreateProductForm = () => {
           </div>
           <div>
             {sizes.map((s: any, key: React.Key) => (
-              <CreateSizeCard size={s.size} amount={s.amount} />
+              <CreateSizeCard key={key} size={s.size} amount={s.amount} />
             ))}
           </div>
           <div className="flex gap-2 mt-4 justify-end">
