@@ -3,9 +3,11 @@ import Image from "next/image";
 import { diploma } from "@/fonts/font-init";
 import Link from "next/link";
 
+import heroImage from "../../../../public/hero-background.jpg";
+
 const HeroSection = () => {
   return (
-    <div className="h-[100vh] width-[100vw] flex justify-center items-center">
+    <div className="h-[100vh] width-[100vw] flex justify-center items-center overflow-hidden">
       <div className="px-4 md:px-[20%] grid grid-cols-1 gap-4">
         <div className="order-last md:order-first flex flex-col items-center">
           <h1
@@ -29,6 +31,13 @@ const HeroSection = () => {
               Produkty
             </Link>
           </div>
+          <Image
+            src={heroImage}
+            width={1000}
+            height={1000}
+            alt="product photo"
+            className="object-cover h-[100%] w-[100%] rounded-md absolute top-0 left-0 right-0 bottom-0 -z-10 blur-md"
+          />
         </div>
         {/*
           <div>

@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`text-red-500 bg-black ${
+      className={`text-red-500  ${
         isMenuUnfolded ? "bg-black" : ""
       } pl-4 py-4 pr-8 lg:p-4 flex flex-col md:flex-row md:justify-between md:items-center fixed top-0 left-0 right-0 z-20`}>
       <NavbarLogo />

@@ -11,3 +11,16 @@ body {
   /* @apply bg-slate-950; */
   @apply bg-black;
 }
+
+.page-transition-class {
+  animation: page-transition-animation 0.8s forwards;
+}
+
+@keyframes page-transition-animation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

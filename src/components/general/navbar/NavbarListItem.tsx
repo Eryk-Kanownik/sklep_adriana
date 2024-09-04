@@ -10,7 +10,9 @@ interface INavbarListItem {
 const NavbarListItem: React.FC<INavbarListItem> = ({ path, text, onClick }) => {
   return (
     <li onClick={onClick}>
-      <Link href={path} className="duration-200 hover:text-red-500 ">
+      <Link
+        href={path}
+        className="duration-200 hover:text-red-500 font-semibold">
         {text}
       </Link>
     </li>
