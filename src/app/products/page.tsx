@@ -4,13 +4,26 @@ import React from "react";
 import { diploma } from "@/fonts/font-init";
 import prisma from "@/lib/db/db";
 
-async function getProducts() {
-  let products = await prisma.productObject.findMany();
-  return products;
+async function getProducts(search: string) {
+  if (search === undefined) {
+    let products = await prisma.productObject.findMany({});
+    return products;
+  } else {
+    let products = await prisma.productObject.findMany({
+      where: { name: { contains: search, mode: "insensitive" } },
+    });
+    return products;
+  }
 }
 
-const page = async () => {
-  const products = await getProducts();
+const page = async ({
+  searchParams: { search },
+}: {
+  searchParams: {
+    search: string;
+  };
+}) => {
+  const products = await getProducts(search);
   return (
     <div className="px-4 lg:px-[20%] py-[90px] lg:py-32">
       <h1
@@ -18,9 +31,12 @@ const page = async () => {
         Szukaj produktów
       </h1>
       <SearchForm />
-      <h3 className="mt-2  text-gray-400 text-sm">
-        {products.length} Wyników dla:""
-      </h3>
+      {search !== undefined && (
+        <h3 className="mt-2  text-gray-400 text-sm">
+          {products.length} Wyników dla:
+        </h3>
+      )}
+
       <div className="grid mt-2 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
         {products.map(({ id, name, price }: any, key: React.Key) => (
           <ProductCard key={key} id={id} name={name} price={price} />

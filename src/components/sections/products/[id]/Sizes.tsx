@@ -19,10 +19,11 @@ const Sizes: React.FC<ISizes> = ({ sizes, setSize }) => {
 
   return (
     <div className="flex gap-2">
-      {sizes?.map(({ size, amount }: any) => (
+      {sizes?.map(({ size, amount }: any, key: React.Key) => (
         <SizeButton
+          key={key}
           size={size}
-          count={amount}
+          amount={amount}
           onClick={onClickSizeButton}
           chosenSize={chosenSize}
         />
