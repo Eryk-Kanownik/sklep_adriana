@@ -36,6 +36,11 @@ const Navbar = () => {
           path="/admin/create-product"
           text="Utwórz produkt"
           onClick={onClickNavbarListItem}
+        />{" "}
+        <NavbarListItem
+          path="/admin/create-category"
+          text="Utwórz Kategorie"
+          onClick={onClickNavbarListItem}
         />
         <NavbarCart
           path="/cart"

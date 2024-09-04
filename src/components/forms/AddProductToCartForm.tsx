@@ -4,7 +4,11 @@ import Count from "../sections/products/[id]/Count";
 import Sizes from "../sections/products/[id]/Sizes";
 import useCartStore, { IUseCartStore } from "@/state/cart";
 
-const AddProductToCartForm = () => {
+interface IAddProductToCartForm {
+  sizes: Array<object>;
+}
+
+const AddProductToCartForm: React.FC<IAddProductToCartForm> = ({ sizes }) => {
   const { addToCart } = useCartStore<IUseCartStore>((state) => state);
   const [cartObject, setCartObject] = useState<ICartObject>({
     product: {
@@ -33,7 +37,7 @@ const AddProductToCartForm = () => {
   return (
     <form onSubmit={onSubmit}>
       <h3 className="font-semibold text-xl mb-2">Rozmiary</h3>
-      <Sizes setSize={setSize} />
+      <Sizes sizes={sizes} setSize={setSize} />
       <h3 className="font-semibold text-xl my-2">Ilość</h3>
       <Count setAmount={setCount} />
       <button

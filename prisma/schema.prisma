@@ -17,26 +17,15 @@ model ProductObject {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
   name        String
   description String
+  category    String
+  price       Int
+  sizes       Size[]
 }
 
-model Pants {
-  id          String      @id @default(auto()) @map("_id") @db.ObjectId
-  name        String
-  description String
-  sizes       PantsSize[]
-}
-
-model PantsSize {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  pants    Pants?  @relation(fields: [pantsId], references: [id])
-  pantsId  String? @db.ObjectId
-  quantity Int
-}
-
-model Gloves {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
-
-model Balaclavas {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
+model Size {
+  id              String         @id @default(auto()) @map("_id") @db.ObjectId
+  size            String
+  amount          Int
+  productObject   ProductObject? @relation(fields: [productObjectId], references: [id])
+  productObjectId String?        @db.ObjectId
 }

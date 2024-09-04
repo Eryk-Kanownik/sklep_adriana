@@ -2,10 +2,11 @@ import React, { useEffect, useState } from "react";
 import SizeButton from "./SizeButton";
 
 interface ISizes {
+  sizes: Array<object>;
   setSize: (size: string | number) => void;
 }
 
-const Sizes: React.FC<ISizes> = ({ setSize }) => {
+const Sizes: React.FC<ISizes> = ({ sizes, setSize }) => {
   const [chosenSize, setChosenSize] = useState<string | number | null>(null);
 
   useEffect(() => {
@@ -18,48 +19,14 @@ const Sizes: React.FC<ISizes> = ({ setSize }) => {
 
   return (
     <div className="flex gap-2">
-      <SizeButton
-        size={28}
-        count={30}
-        onClick={onClickSizeButton}
-        chosenSize={chosenSize}
-      />
-      <SizeButton
-        size={29}
-        count={30}
-        onClick={onClickSizeButton}
-        chosenSize={chosenSize}
-      />
-      <SizeButton
-        size={30}
-        count={0}
-        onClick={onClickSizeButton}
-        chosenSize={chosenSize}
-      />
-      <SizeButton
-        size={31}
-        count={5}
-        onClick={onClickSizeButton}
-        chosenSize={chosenSize}
-      />
-      <SizeButton
-        size={32}
-        count={30}
-        onClick={onClickSizeButton}
-        chosenSize={chosenSize}
-      />
-      <SizeButton
-        size={33}
-        count={0}
-        onClick={onClickSizeButton}
-        chosenSize={chosenSize}
-      />
-      <SizeButton
-        size={34}
-        count={5}
-        onClick={onClickSizeButton}
-        chosenSize={chosenSize}
-      />
+      {sizes?.map(({ size, amount }: any) => (
+        <SizeButton
+          size={size}
+          count={amount}
+          onClick={onClickSizeButton}
+          chosenSize={chosenSize}
+        />
+      ))}
     </div>
   );
 };
