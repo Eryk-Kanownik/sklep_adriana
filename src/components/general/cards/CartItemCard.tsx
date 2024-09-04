@@ -19,19 +19,25 @@ const CartItemCard: React.FC<ICartItemCard> = ({
   size,
 }) => {
   return (
-    <div className="p-4 border-2 rounded-sm flex gap-2">
+    <div className="p-4 border-2 rounded-sm flex flex-col sm:flex-row gap-2">
       <Image
         src="https://picsum.photos/200/300"
         width={200}
         height={200}
         alt="product photo"
-        className="object-cover aspect-square"
+        className="object-cover aspect-square w-[100%] sm:w-[200px]"
       />
       <div>
         <h2 className="font-bold text-2xl text-red-700">{name}</h2>
-        <p>Ilość: {count}</p>
-        <p>Cena: {price}</p>
-        <p>Rozmiar: {size}</p>
+        <p>
+          <span className="font-bold">Ilość:</span> {count}
+        </p>
+        <p>
+          <span className="font-bold">Cena:</span> {price / 100} ZŁ
+        </p>
+        <p>
+          <span className="font-bold">Rozmiar:</span> {size}
+        </p>
       </div>
     </div>
   );

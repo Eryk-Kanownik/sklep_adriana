@@ -16,9 +16,17 @@ const LatestProducts = async () => {
         Ostatnio dodane
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-        {latestProducts.map(({ id, name, price }: any, key: React.Key) => (
-          <ProductCard key={key} id={id} name={name} price={price} />
-        ))}
+        {latestProducts.map(
+          ({ id, name, price, category }: any, key: React.Key) => (
+            <ProductCard
+              key={key}
+              id={id}
+              name={name}
+              price={price}
+              category={category}
+            />
+          )
+        )}
       </div>
     </div>
   );

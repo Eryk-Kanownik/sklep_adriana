@@ -24,7 +24,7 @@ const page = async ({
   };
 }) => {
   const products = await getProducts(search);
-  console.log(search);
+
   return (
     <div className="px-4 lg:px-[20%] py-[90px] lg:py-32">
       <h1
@@ -38,9 +38,15 @@ const page = async ({
         </h3>
       )}
 
-      <div className="grid mt-2 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
-        {products.map(({ id, name, price }: any, key: React.Key) => (
-          <ProductCard key={key} id={id} name={name} price={price} />
+      <div className="grid mt-6 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+        {products.map(({ id, name, price, category }: any, key: React.Key) => (
+          <ProductCard
+            key={key}
+            id={id}
+            name={name}
+            price={price}
+            category={category}
+          />
         ))}
       </div>
     </div>
