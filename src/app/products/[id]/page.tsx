@@ -13,7 +13,6 @@ async function getSingleProduct(id: string) {
 
 const page = async ({ params: { id } }: { params: { id: string } }) => {
   const singleProduct = await getSingleProduct(id);
-  console.log(singleProduct);
   return (
     <div className="  lg:px-[20%] py-[90px] lg:py-32">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
@@ -26,7 +25,13 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
           <p className="mb-8">{singleProduct?.description}</p>
           <h3 className="font-semibold text-xl mb-2">Cena</h3>
           <p className="mb-4">{singleProduct?.price! / 100} ZŁ</p>
-          <AddProductToCartForm sizes={singleProduct?.sizes!} />
+          <AddProductToCartForm
+            id={singleProduct!.id}
+            name={singleProduct!.name}
+            category={singleProduct!.category}
+            price={singleProduct!.price}
+            sizes={singleProduct!.sizes}
+          />
         </div>
       </div>
     </div>

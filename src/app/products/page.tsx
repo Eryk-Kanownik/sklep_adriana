@@ -24,6 +24,7 @@ const page = async ({
   };
 }) => {
   const products = await getProducts(search);
+  console.log(search);
   return (
     <div className="px-4 lg:px-[20%] py-[90px] lg:py-32">
       <h1
@@ -33,7 +34,7 @@ const page = async ({
       <SearchForm />
       {search !== undefined && (
         <h3 className="mt-2  text-gray-400 text-sm">
-          {products.length} Wyników dla:
+          {products.length} Wyników dla: {search}
         </h3>
       )}
 

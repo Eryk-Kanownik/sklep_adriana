@@ -18,7 +18,7 @@ const SearchForm = () => {
     <form className="flex gap-2" onSubmit={onSubmit}>
       <input
         type="text"
-        className="p-2 rounded-sm bg-black text-red-700 border-2"
+        className="p-2 rounded-sm bg-black text-white border-2"
         onChange={(e) => setSearch(e.target.value)}
       />
       <button className="border-2 px-4 py-2 rounded-sm font-bold hover:border-red-700  duration-200">

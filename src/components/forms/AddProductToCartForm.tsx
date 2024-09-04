@@ -5,17 +5,27 @@ import Sizes from "../sections/products/[id]/Sizes";
 import useCartStore, { IUseCartStore } from "@/state/cart";
 
 interface IAddProductToCartForm {
+  id: string;
+  name: string;
+  category: string;
+  price: number;
   sizes: Array<object>;
 }
 
-const AddProductToCartForm: React.FC<IAddProductToCartForm> = ({ sizes }) => {
+const AddProductToCartForm: React.FC<IAddProductToCartForm> = ({
+  id,
+  name,
+  category,
+  price,
+  sizes,
+}) => {
   const { addToCart } = useCartStore<IUseCartStore>((state) => state);
   const [cartObject, setCartObject] = useState<ICartObject>({
     product: {
-      id: "",
-      name: "",
-      type: "",
-      price: null,
+      id: id,
+      name: name,
+      category: category,
+      price: price,
       size: null,
     },
     count: 1,
@@ -54,8 +64,8 @@ interface ICartObject {
   product: {
     id: string;
     name: string;
-    type: string;
-    price: null | number;
+    category: string;
+    price: number;
     size: null | string | number;
   };
   count: number;
