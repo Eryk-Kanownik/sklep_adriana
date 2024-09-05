@@ -36,10 +36,10 @@ const Navbar = () => {
           path="/admin/create-product"
           text="Utwórz produkt"
           onClick={onClickNavbarListItem}
-        />{" "}
+        />
         <NavbarListItem
-          path="/admin/create-category"
-          text="Utwórz Kategorie"
+          path="/admin/orders"
+          text="Zamówienia"
           onClick={onClickNavbarListItem}
         />
         <NavbarCart

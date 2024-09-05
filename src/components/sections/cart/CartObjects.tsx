@@ -7,7 +7,7 @@ const CartObjects = () => {
   const { cart } = useCartStore<IUseCartStore>((state) => state);
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 mb-6">
       <h3 className="mb-2 text-xl font-semibold">
         Ilość przedmiotów:{" "}
         {cart.length > 0

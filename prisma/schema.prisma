@@ -13,14 +13,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+//user
+model User {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  username String
+  password String
+}
+
+//products
 model ProductObject {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  name        String   @unique
-  description String
-  category    String
-  price       Int
-  sizes       Size[]
-  createdAt   DateTime @default(now())
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  name           String           @unique
+  description    String
+  category       String
+  price          Int
+  sizes          Size[]
+  createdAt      DateTime         @default(now())
+  orderedProduct OrderedProduct[]
 }
 
 model Size {
@@ -29,4 +38,31 @@ model Size {
   amount          Int
   productObject   ProductObject? @relation(fields: [productObjectId], references: [id])
   productObjectId String?        @db.ObjectId
+}
+
+//orders
+model Order {
+  id              String           @id @default(auto()) @map("_id") @db.ObjectId
+  firstName       String
+  lastName        String
+  email           String
+  phoneNumber     String
+  place           String
+  buildingNumber  String
+  postalCode      String
+  isPayed         Boolean          @default(false)
+  isDone          Boolean          @default(false)
+  price           Int
+  orderedProducts OrderedProduct[]
+  createdAt       DateTime         @default(now())
+}
+
+model OrderedProduct {
+  id              String        @id @default(auto()) @map("_id") @db.ObjectId
+  product         ProductObject @relation(fields: [productObjectId], references: [id])
+  productObjectId String        @db.ObjectId
+  size            String
+  amount          Int
+  order           Order?        @relation(fields: [orderId], references: [id])
+  orderId         String?       @db.ObjectId
 }
