@@ -12,7 +12,7 @@ const NavbarListItem: React.FC<INavbarListItem> = ({ path, text, onClick }) => {
     <li onClick={onClick}>
       <Link
         href={path}
-        className="duration-200 hover:text-red-500 font-semibold">
+        className="duration-200 hover:text-red-500 font-semibold text-sm">
         {text}
       </Link>
     </li>

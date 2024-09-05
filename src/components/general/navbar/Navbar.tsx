@@ -19,7 +19,7 @@ const Navbar = () => {
       } pl-4 py-4 pr-8 lg:p-4 flex flex-col md:flex-row md:justify-between md:items-center fixed top-0 left-0 right-0 z-20`}>
       <NavbarLogo />
       <ul
-        className={`flex  flex-col  gap-5 overflow-hidden ${
+        className={`flex flex-col gap-3 md:gap-5 overflow-hidden ${
           isMenuUnfolded ? "max-h-[600px] mt-6" : "max-h-0 mt-0"
         } md:max-h-[600px] md:flex-row md:items-center md:mt-0 origin-top`}>
         <NavbarListItem

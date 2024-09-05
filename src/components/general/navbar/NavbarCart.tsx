@@ -15,18 +15,22 @@ const NavbarCart: React.FC<INavbarCart> = ({ path, text, onClick }) => {
     <li onClick={onClick}>
       <Link
         href={path}
-        className="flex items-center gap-2 bg-red-700 px-4 py-2 rounded-sm font-bold duration-200 hover:bg-red-500">
-        <div className="flex gap-2 items-center">
-          <p>{text}</p>
-          <FaCartShopping />
-          <span>
-            {" "}
-            {cart.length > 0
-              ? cart
+        className="flex  gap-2 bg-red-700 px-4 py-2 rounded-sm font-bold duration-200 hover:bg-red-500">
+        <div className="flex items-center text-sm ">
+          <div className="flex gap-1 items-center">
+            <p>{text}</p>
+            <FaCartShopping />
+
+            {cart.length > 0 && (
+              <span>
+                {"("}
+                {cart
                   .map((item: any) => item.count)
-                  .reduce((total, val) => total + val)
-              : ""}
-          </span>
+                  .reduce((total, val) => total + val)}
+                {")"}
+              </span>
+            )}
+          </div>
         </div>
       </Link>
     </li>
