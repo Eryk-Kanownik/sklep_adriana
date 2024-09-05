@@ -10,24 +10,22 @@ const HeroSection = () => {
     <div className="h-[100vh] width-[100vw] flex justify-center items-center overflow-hidden">
       <div className="px-4 md:px-[20%] grid grid-cols-1 gap-4">
         <div className="order-last md:order-first flex flex-col items-center">
-          <h1
-            className={`${diploma.className} font-bold text-[50px] text-red-600 `}>
+          <h1 className={`${diploma.className}  text-[50px] text-red-600 `}>
             Sklep Adriana
           </h1>
-          <p className="mb-4  text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione,
-            deserunt? Odit repudiandae reiciendis incidunt voluptate delectus
-            alias est veniam cumque aperiam quaerat saepe, voluptatum minima.
-            Temporibus quaerat laborum unde harum?
+          <p className="mb-4 font-semibold text-lg text-center">
+            Zobacz kolekcję odzieży dla uliczniaków i drillowców – od
+            wyrazistych bluz, przez szerokie spodnie, po dodatki, które
+            uzupełnią Twój charakter.
           </p>
           <div className="flex gap-2 justify-center md:justify-normal">
             <button
-              className={` ${diploma.className} border-2 border-red-600 rounded-sm py-2 px-4 bg-red-600`}>
+              className={`  border-2 border-red-600 font-bold rounded-sm py-2 px-4 bg-red-600`}>
               Promocje
             </button>
             <Link
               href="/products"
-              className={` ${diploma.className} border-2 border-red-600 rounded-sm py-2 px-4 `}>
+              className={`  border-2 border-red-600 font-bold rounded-sm py-2 px-4 `}>
               Produkty
             </Link>
           </div>

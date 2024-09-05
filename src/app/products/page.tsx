@@ -27,8 +27,7 @@ const page = async ({
 
   return (
     <div className="px-4 lg:px-[20%] py-[90px] lg:py-32">
-      <h1
-        className={`${diploma.className} text-4xl mb-6 font-semibold text-red-700`}>
+      <h1 className={`${diploma.className} text-4xl mb-6  text-red-700`}>
         Szukaj produktów
       </h1>
       <SearchForm />
@@ -37,8 +36,7 @@ const page = async ({
           {products.length} Wyników dla: {search}
         </h3>
       )}
-
-      <div className="grid mt-6 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+      <div className=" mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3">
         {products.map(({ id, name, price, category }: any, key: React.Key) => (
           <ProductCard
             key={key}

@@ -33,9 +33,9 @@ const OrderCard: React.FC<IOrderCard> = ({
   createdAt,
 }) => {
   return (
-    <div className="p-6 border-2 flex flex-col rounded-sm">
+    <div className="p-6 border-[1px]  flex flex-col rounded-sm">
       <div>
-        <div className="mb-2">
+        <div className="mb-2 border-b-[1px] pb-2">
           <h2 className="text-xl sm:text-2xl font-bold ">
             Zamówienie nr: {id}
           </h2>

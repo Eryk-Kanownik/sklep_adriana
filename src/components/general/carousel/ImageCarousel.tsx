@@ -51,7 +51,7 @@ const ImageCarousel = () => {
   };
 
   return (
-    <div className="w-[100%] h-[100%] select-none relative overflow-hidden aspect-square md:rounded-md">
+    <div className="w-[100%] h-[100%] select-none relative overflow-hidden aspect-square ">
       <div className="absolute left-4 top-[47%] z-10" onClick={prevImage}>
         <FaArrowAltCircleLeft
           size={30}

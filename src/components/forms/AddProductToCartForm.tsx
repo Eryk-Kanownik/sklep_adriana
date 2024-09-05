@@ -45,7 +45,7 @@ const AddProductToCartForm: React.FC<IAddProductToCartForm> = ({
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} className="flex flex-col">
       <h3 className="font-semibold text-xl mb-2">Rozmiary</h3>
       <Sizes sizes={sizes} setSize={setSize} />
       <h3 className="font-semibold text-xl my-2">Ilość</h3>

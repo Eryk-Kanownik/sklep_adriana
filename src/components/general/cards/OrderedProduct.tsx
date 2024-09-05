@@ -26,7 +26,7 @@ const OrderedProduct: React.FC<IOrderedProduct> = ({
         width={200}
         height={200}
         alt="product photo"
-        className="object-cover aspect-square  w-[70px] h-[70px]"
+        className="object-cover aspect-square w-[70px] h-[70px]"
       />
       <div>
         <h2 className="text-md font-bold">{name}</h2>

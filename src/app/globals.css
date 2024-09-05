@@ -16,6 +16,18 @@ body {
   animation: page-transition-animation 0.8s forwards;
 }
 
+@layer base {
+  input[type="text"],
+  input[type="number"],
+  input[type="phone"],
+  input[type="email"],
+  input[type="password"],
+  textarea,
+  select {
+    @apply p-2 rounded-sm bg-black text-white text-sm font-light border-[1px];
+  }
+}
+
 @keyframes page-transition-animation {
   from {
     opacity: 0;

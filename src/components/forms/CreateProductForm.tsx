@@ -115,11 +115,10 @@ const CreateProductForm = () => {
         createProduct({ ...data, sizes, category, price })
       }>
       <div className="flex flex-col">
-        <h2 className="my-4 font-bold text-xl">Dane</h2>
+        <h2 className="my-4 font-semibold text-xl">Dane</h2>
         <label className="mb-1">Nazwa produktu</label>
         <input
           type="text"
-          className="p-2 rounded-sm bg-black  border-2"
           placeholder="Nazwa produktu..."
           name="name"
           onChange={onChangeText}
@@ -128,7 +127,7 @@ const CreateProductForm = () => {
       <div className="flex flex-col">
         <label className="mb-1">Kategoria</label>
         <select
-          className="p-2 rounded-sm bg-black border-2 w-[200px]"
+          className="w-[200px]"
           onChange={(e) => setCategory(e.target.value)}
           defaultValue="pants">
           <option value="pants">Spodnie</option>
@@ -138,7 +137,6 @@ const CreateProductForm = () => {
       <div className="flex flex-col">
         <label className="mb-1">Opis produktu</label>
         <textarea
-          className="p-2 rounded-sm bg-black  border-2"
           placeholder="Opis produktu..."
           rows={5}
           onChange={onChangeText}
@@ -147,10 +145,10 @@ const CreateProductForm = () => {
       </div>
       <div className="flex flex-col">
         <div>
-          <h2 className="my-4 font-bold text-xl">Rozmiary</h2>
-          <div className="grid grid-cols-[100px,100px] border-y-2 p-2">
-            <p className="text-center">Rozmiar</p>
-            <p className="text-center">Ilość</p>
+          <h2 className="my-4 font-semibold text-xl">Rozmiary</h2>
+          <div className="grid grid-cols-[100px,100px] border-y-[1px] p-2">
+            <p className="text-center text-sm text-gray-300">Rozmiar</p>
+            <p className="text-center text-sm text-gray-300">Ilość</p>
           </div>
           <div>
             {sizes.map((s: any, key: React.Key) => (
@@ -166,7 +164,6 @@ const CreateProductForm = () => {
           <div className="flex gap-2 mt-4 justify-end">
             <select
               name="size"
-              className="p-2 rounded-sm bg-black  border-2 w-16 text-center"
               onChange={(e) =>
                 setSizeData((prev) => ({ ...prev, size: e.target.value }))
               }>
@@ -175,7 +172,6 @@ const CreateProductForm = () => {
             <input
               name="amount"
               type="text"
-              className="p-2 rounded-sm bg-black  border-2 w-16 text-center"
               placeholder="Ilość"
               onChange={(e) =>
                 setSizeData((prev) => ({
@@ -187,7 +183,7 @@ const CreateProductForm = () => {
             <button
               onClick={addSize}
               type="button"
-              className="border-2 px-4 py-2 rounded-sm font-bold hover:border-red-700  duration-200">
+              className="border-2 px-4 py-1 rounded-sm font-semibold hover:border-red-700  duration-200">
               Dodaj rozmiar
             </button>
           </div>
@@ -200,7 +196,6 @@ const CreateProductForm = () => {
           type="number"
           placeholder="Cena (w groszach)..."
           defaultValue={price}
-          className="p-2 rounded-sm bg-black  border-2  "
         />
       </div>
       <div>

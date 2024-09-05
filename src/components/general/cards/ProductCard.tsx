@@ -17,12 +17,12 @@ const ProductCard: React.FC<IProductCard> = ({ id, name, price, category }) => {
         width={200}
         height={200}
         alt="product photo"
-        className="object-cover w-[100%] aspect-square"
+        className="object-cover w-[100%] aspect-[2/3]"
       />
-      <div className="px-4 pt-3 pb-4 bg-red-800">
-        <h3 className=" font-semibold text-xl text-white  ">{name}</h3>
-        <p className=" text-sm font-semibold text-gray-300">{category}</p>
-        <p className=" text-sm font-bold">{(price / 100).toString()} ZŁ</p>
+      <div className="pt-3">
+        <p className="text-[12px] text-gray-300 font-light mt-1">{category}</p>
+        <h3 className=" font-bold mb-2 text-sm text-red-700">{name}</h3>
+        <p className="text-sm font-bold">{(price / 100).toFixed(2)} zł</p>
       </div>
     </Link>
   );
