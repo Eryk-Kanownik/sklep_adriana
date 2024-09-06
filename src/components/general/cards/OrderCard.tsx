@@ -51,7 +51,7 @@ const OrderCard: React.FC<IOrderCard> = ({
           <div>
             <p className="text-gray-400 text-sm">Nazwisko:</p>
             <p>{lastName}</p>
-          </div>{" "}
+          </div>
           <div>
             <p className="text-gray-400 text-sm">Email:</p>
             <p>{email}</p>
@@ -74,7 +74,12 @@ const OrderCard: React.FC<IOrderCard> = ({
           </div>
         </div>
       </div>
-
+      <h2
+        className={`mt-2 text-xl font-bold ${
+          isPayed ? "text-green-700" : "text-red-700"
+        }`}>
+        Zakup {isPayed ? "opłacony!" : "nieopłacony"}
+      </h2>
       <h2 className="mt-2 font-bold">Zamówione produkty:</h2>
       <div className=" grid  sm:grid-cols-2 gap-2 mt-2 border-y-[1px] py-4">
         {orderedProducts.map(
@@ -97,9 +102,14 @@ const OrderCard: React.FC<IOrderCard> = ({
           <h2 className="mt-2 font-bold text-lg ">Cena</h2>
           <p className="font-bold text-sm ">{price / 100} ZŁ</p>
         </div>
-        <button className="border-2  px-4 py-2 rounded-sm font-bold hover:border-red-700  duration-200 self-end">
-          Wykonane
-        </button>
+        <div className="flex gap-2">
+          <button className="border-2  px-4 py-2 rounded-sm font-bold hover:border-red-700  duration-200 self-end">
+            Usuń
+          </button>
+          <button className="border-2  px-4 py-2 rounded-sm font-bold hover:border-red-700  duration-200 self-end">
+            Wykonane
+          </button>
+        </div>
       </div>
     </div>
   );

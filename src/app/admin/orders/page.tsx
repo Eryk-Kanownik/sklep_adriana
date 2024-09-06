@@ -43,7 +43,7 @@ const page = async () => {
               price,
               orderedProducts,
               createdAt,
-            },
+            }: any,
             key: React.Key
           ) => (
             <OrderCard
@@ -85,7 +85,7 @@ const page = async () => {
               price,
               orderedProducts,
               createdAt,
-            },
+            }: any,
             key: React.Key
           ) => (
             <OrderCard

@@ -50,8 +50,9 @@ model Order {
   place           String
   buildingNumber  String
   postalCode      String
-  isPayed         Boolean          @default(false)
   isDone          Boolean          @default(false)
+  isPayed         Boolean
+  stripeId        String
   price           Int
   orderedProducts OrderedProduct[]
   createdAt       DateTime         @default(now())
