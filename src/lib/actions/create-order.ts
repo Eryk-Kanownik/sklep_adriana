@@ -26,8 +26,16 @@ async function createOrder(formData: FormData, cart: Array<object>) {
     payment_method_types: ["card"],
     line_items: items,
     mode: "payment",
-    success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `http://localhost:3000/canceled`,
+    success_url: `${
+      process.env.NODE_ENV === "production"
+        ? process.env.SERVER_URL
+        : "http://localhost:3000"
+    }/success?session_id={CHECKOUT_SESSION_ID}`,
+    cancel_url: `${
+      process.env.NODE_ENV === "production"
+        ? process.env.SERVER_URL
+        : "http://localhost:3000"
+    }/canceled`,
   });
 
   //save order to database
