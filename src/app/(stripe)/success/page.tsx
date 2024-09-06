@@ -2,7 +2,7 @@
 import { useParams, useSearchParams } from "next/navigation";
 import React, { useEffect } from "react";
 
-const page = () => {
+const Page = () => {
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -27,4 +27,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
