@@ -14,11 +14,7 @@ const Update = () => {
     }
   }, []);
 
-  return (
-    <Suspense>
-      <div>Hello</div>
-    </Suspense>
-  );
+  return <div>Hello</div>;
 };
 
 export default Update;

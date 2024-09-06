@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import Update from "./Update";
 
 const Page = () => {
@@ -11,7 +11,9 @@ const Page = () => {
         Płatność zakończona! Za 5 sekund zostaniesz przekierowany do strony
         głównej...
       </p>
-      <Update />
+      <Suspense>
+        <Update />
+      </Suspense>
     </div>
   );
 };
