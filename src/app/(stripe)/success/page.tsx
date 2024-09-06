@@ -11,9 +11,11 @@ const Page = () => {
         Płatność zakończona! Za 5 sekund zostaniesz przekierowany do strony
         głównej...
       </p>
-      <Suspense>
+      {/*
+<Suspense>
         <Update />
       </Suspense>
+        */}
     </div>
   );
 };
