@@ -1,6 +1,6 @@
 "use client";
 import { useSearchParams } from "next/navigation";
-import React, { useEffect } from "react";
+import React, { Suspense, useEffect } from "react";
 
 const Update = () => {
   const searchParams = useSearchParams();
@@ -14,7 +14,11 @@ const Update = () => {
     }
   }, []);
 
-  return <div>Hello</div>;
+  return (
+    <Suspense>
+      <div>Hello</div>
+    </Suspense>
+  );
 };
 
 export default Update;
