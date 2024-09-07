@@ -1,5 +1,4 @@
-import React, { Suspense } from "react";
-import Update from "./Update";
+import React from "react";
 
 const Page = () => {
   return (
@@ -11,11 +10,6 @@ const Page = () => {
         Płatność zakończona! Za 5 sekund zostaniesz przekierowany do strony
         głównej...
       </p>
-      {/*
-<Suspense>
-        <Update />
-      </Suspense>
-        */}
     </div>
   );
 };

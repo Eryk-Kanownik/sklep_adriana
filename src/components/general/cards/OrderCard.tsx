@@ -1,6 +1,7 @@
 import React from "react";
 import OrderedProduct from "./OrderedProduct";
 import DeleteOrderForm from "@/components/forms/DeleteOrderForm";
+import FinishOrderForm from "@/components/forms/DoneOrderForm";
 
 interface IOrderCard {
   id: string;
@@ -99,15 +100,13 @@ const OrderCard: React.FC<IOrderCard> = ({
         )}
       </div>
       <div className="flex justify-between mt-4">
-        <div>
-          <h2 className="mt-2 font-bold text-lg ">Cena</h2>
+        <div className="flex flex-col  items-center">
+          <h2 className=" font-bold text-lg ">Cena</h2>
           <p className="font-bold text-sm ">{price / 100} ZŁ</p>
         </div>
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center">
           <DeleteOrderForm orderId={id} />
-          <button className="border-2  px-4 py-2 rounded-sm font-bold hover:border-red-700  duration-200 self-end">
-            Wykonane
-          </button>
+          <FinishOrderForm orderId={id} />
         </div>
       </div>
     </div>
