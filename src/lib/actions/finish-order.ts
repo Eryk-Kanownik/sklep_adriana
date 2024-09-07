@@ -4,7 +4,10 @@ import { revalidatePath } from "next/cache";
 import prisma from "../db/db";
 
 async function finishOrder(orderId: string) {
-  await prisma.order.update({ where: { id: orderId }, data: { isDone: true } });
+  await prisma.order.updateMany({
+    where: { id: orderId },
+    data: { isDone: true },
+  });
   revalidatePath("/admin/orders");
 }
 
