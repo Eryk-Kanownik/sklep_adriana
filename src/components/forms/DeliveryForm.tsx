@@ -85,7 +85,7 @@ const DeliveryForm = () => {
           </div>
         </div>
       </div>
-      <button className="mt-4 border-2 px-4 py-2 rounded-sm font-bold hover:border-red-700  duration-200">
+      <button className="mt-4 border-2 px-4 py-2 rounded-sm font-bold hover:border-red-700 duration-200">
         Przejdź do płatności
       </button>
     </form>

@@ -1,7 +1,7 @@
 import useCartStore, { IUseCartStore } from "@/state/cart";
+import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
 import React from "react";
-import { FaCartShopping } from "react-icons/fa6";
 
 interface INavbarCart {
   path: string;
@@ -15,12 +15,11 @@ const NavbarCart: React.FC<INavbarCart> = ({ path, text, onClick }) => {
     <li onClick={onClick}>
       <Link
         href={path}
-        className="flex  gap-2 bg-red-700 px-4 py-2 rounded-sm font-bold duration-200 hover:bg-red-500">
+        className="flex  gap-2 bg-red-700 px-3 py-2 rounded-sm font-bold duration-200 hover:bg-red-500">
         <div className="flex items-center text-sm ">
           <div className="flex gap-1 items-center">
             <p>{text}</p>
-            <FaCartShopping />
-
+            <ShoppingCart size={15} strokeWidth={3} />
             {cart.length > 0 && (
               <span>
                 {"("}

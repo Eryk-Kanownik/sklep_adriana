@@ -11,11 +11,6 @@ const page = () => {
         Koszyk
       </h1>
       <CartObjects />
-      <Link
-        className="border-2 px-4 py-2 rounded-sm font-bold hover:border-red-700 duration-200 self-end"
-        href="/cart/delivery">
-        Dostawa i Płatność
-      </Link>
     </div>
   );
 };

@@ -16,6 +16,7 @@ const CreateProductForm = () => {
   const [availibleSizes, setAvailibleSizes] = useState<null | React.ReactNode>(
     null
   );
+  const [images, setImages] = useState<null | FileList>(null);
 
   //size form
   const [sizeData, setSizeData] = useState<ISizeData>({

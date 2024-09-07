@@ -22,7 +22,7 @@ const SizeButton: React.FC<ISizeButton> = ({
             ? "bg-red-700 border-red-700 hover:border-red-700"
             : "hover:border-slate-400"
         }
-      p-2 aspect-square rounded-sm border-2 w-[40px] h-[40px] flex justify-center items-center  cursor-pointer disabled:border-gray-700 disabled:text-gray-700`}
+      p-2 aspect-square rounded-sm border-2 font-bold duration-200 text-sm w-[40px] h-[40px] flex justify-center items-center cursor-pointer disabled:border-gray-700 disabled:text-gray-700`}
       disabled={amount > 0 ? false : true}
       type="button">
       {size}

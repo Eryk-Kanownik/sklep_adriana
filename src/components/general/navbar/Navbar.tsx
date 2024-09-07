@@ -24,14 +24,14 @@ const Navbar = () => {
         } md:max-h-[600px] md:flex-row md:items-center md:mt-0 origin-top`}>
         <NavbarListItem
           path="/products"
-          text="Produkty"
+          text="Przeglądaj produkty"
           onClick={onClickNavbarListItem}
         />
         <NavbarListItem
           path="/about-us"
           text="O nas"
           onClick={onClickNavbarListItem}
-        />{" "}
+        />
         <NavbarListItem
           path="/admin/create-product"
           text="Utwórz produkt"
@@ -41,13 +41,14 @@ const Navbar = () => {
           path="/admin/orders"
           text="Zamówienia"
           onClick={onClickNavbarListItem}
-        />
+        />{" "}
         <NavbarCart
           path="/cart"
           text="Koszyk"
           onClick={onClickNavbarListItem}
         />
       </ul>
+
       <div className="md:hidden absolute top-5 right-5">
         <FaBars
           className={`cursor-pointer ${isMenuUnfolded ? "text-red-600" : ""}`}

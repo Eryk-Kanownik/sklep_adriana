@@ -18,7 +18,7 @@ const page = async ({ params: { id } }: { params: { id: string } }) => {
     <div className="lg:px-[20%] py-[90px] lg:py-32">
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <ImageCarousel />
-        <div className="p-4 border-[1px] border-gray-900">
+        <div className="">
           <h1 className={` text-4xl mb-2 font-semibold text-red-700`}>
             {singleProduct?.name}
           </h1>
