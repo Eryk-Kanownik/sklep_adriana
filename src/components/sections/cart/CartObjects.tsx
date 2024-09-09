@@ -1,15 +1,16 @@
 "use client";
 import CartItemCard from "@/components/general/cards/CartItemCard";
 import useCartStore, { IUseCartStore } from "@/state/cart";
-import { redirect } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 import React from "react";
 
 const CartObjects = () => {
+  const router = useRouter();
   const { cart } = useCartStore<IUseCartStore>((state) => state);
 
   const onClickDeliveryAndPayment = () => {
-    redirect("/cart/deliver");
+    router.push("/cart/delivery");
   };
 
   return (
