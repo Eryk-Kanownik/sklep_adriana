@@ -4,8 +4,10 @@ import NavbarLogo from "./NavbarLogo";
 import NavbarListItem from "./NavbarListItem";
 import { FaBars } from "react-icons/fa";
 import NavbarCart from "./NavbarCart";
+import { useSession } from "next-auth/react";
 
 const Navbar = () => {
+  const session = useSession();
   const [isMenuUnfolded, setIsMenuUnfolded] = useState(false);
 
   const onClickNavbarListItem = () => {
@@ -21,6 +23,8 @@ const Navbar = () => {
       }
     });
   }, []);
+
+  console.log(session.status);
 
   return (
     <nav
@@ -40,23 +44,23 @@ const Navbar = () => {
           text="O nas"
           onClick={onClickNavbarListItem}
         />
-        <NavbarListItem
-          path="/admin/create-product"
-          text="Utwórz produkt"
-          onClick={onClickNavbarListItem}
-        />
-        <NavbarListItem
-          path="/admin/orders"
-          text="Zamówienia"
-          onClick={onClickNavbarListItem}
-        />
+        {session.status === "authenticated" && (
+          <NavbarListItem
+            path="/admin"
+            text="Panel administratora"
+            onClick={onClickNavbarListItem}
+          />
+        )}
       </ul>
-      <NavbarCart
-        path="/cart"
-        text="Koszyk"
-        className="hidden md:block"
-        onClick={onClickNavbarListItem}
-      />
+      <div className="flex gap-2">
+        <NavbarCart
+          path="/cart"
+          text="Koszyk"
+          className="hidden md:block"
+          onClick={onClickNavbarListItem}
+        />
+      </div>
+
       <div className="md:hidden absolute top-5 right-5">
         <FaBars
           className={`cursor-pointer ${isMenuUnfolded ? "text-red-600" : ""}`}
@@ -77,16 +81,13 @@ const Navbar = () => {
           text="O nas"
           onClick={onClickNavbarListItem}
         />
-        <NavbarListItem
-          path="/admin/create-product"
-          text="Utwórz produkt"
-          onClick={onClickNavbarListItem}
-        />
-        <NavbarListItem
-          path="/admin/orders"
-          text="Zamówienia"
-          onClick={onClickNavbarListItem}
-        />
+        {session.status === "authenticated" && (
+          <NavbarListItem
+            path="/admin"
+            text="Panel administratora"
+            onClick={onClickNavbarListItem}
+          />
+        )}
         <NavbarCart
           path="/cart"
           text="Koszyk"
