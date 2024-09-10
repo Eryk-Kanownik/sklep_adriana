@@ -30,6 +30,14 @@ model ProductObject {
   sizes          Size[]
   createdAt      DateTime         @default(now())
   orderedProduct OrderedProduct[]
+  images         ProductImage[]
+}
+
+model ProductImage {
+  id              String         @id @default(auto()) @map("_id") @db.ObjectId
+  path            String
+  productObject   ProductObject? @relation(fields: [productObjectId], references: [id])
+  productObjectId String?        @db.ObjectId
 }
 
 model Size {

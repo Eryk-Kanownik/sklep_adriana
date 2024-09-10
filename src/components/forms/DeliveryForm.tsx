@@ -7,7 +7,6 @@ const DeliveryForm = () => {
   const { cart } = useCartStore<IUseCartStore>((state) => state);
   return (
     <form action={(formData: FormData) => createOrder(formData, cart)}>
-      {" "}
       <h2 className="my-4 font-bold text-xl">Dane</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="flex flex-col">
@@ -17,6 +16,7 @@ const DeliveryForm = () => {
             className="p-2 rounded-sm bg-black  border-2"
             placeholder="Imię..."
             name="first-name"
+            required
           />
         </div>
         <div className="flex flex-col">
@@ -26,15 +26,17 @@ const DeliveryForm = () => {
             className="p-2 rounded-sm bg-black  border-2"
             placeholder="Nazwisko..."
             name="last-name"
+            required
           />
         </div>
         <div className="flex flex-col">
           <label className="mb-1">Email</label>
           <input
-            type="text"
+            type="email"
             className="p-2 rounded-sm bg-black  border-2"
             placeholder="Email..."
             name="email"
+            required
           />
         </div>
         <div className="flex flex-col">
@@ -44,6 +46,7 @@ const DeliveryForm = () => {
             className="p-2 rounded-sm bg-black  border-2"
             placeholder="Miejscowość..."
             name="place"
+            required
           />
         </div>
         <div className="flex flex-col">
@@ -53,6 +56,7 @@ const DeliveryForm = () => {
             className="p-2 rounded-sm bg-black  border-2"
             placeholder="Nr budynku..."
             name="building-number"
+            required
           />
         </div>
         <div className="flex flex-col">
@@ -62,6 +66,7 @@ const DeliveryForm = () => {
             className="p-2 rounded-sm bg-black  border-2"
             placeholder="Kod pocztowy..."
             name="postal-code"
+            required
           />
         </div>
         <div className="flex flex-col">
@@ -71,6 +76,7 @@ const DeliveryForm = () => {
             className="p-2 rounded-sm bg-black  border-2"
             placeholder="Numer telefonu..."
             name="phone-number"
+            required
           />
         </div>
         <div>

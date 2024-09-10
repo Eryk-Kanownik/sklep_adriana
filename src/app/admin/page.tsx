@@ -5,35 +5,52 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import LogOutButton from "@/components/general/auth/LogOutButton";
 import prisma from "@/lib/db/db";
-import SalesChart from "@/components/charts/MonthSalesChart";
-import DaysInMonth from "@/components/general/DaysInMonth";
 
 async function getSalesByDay() {
   const currentDate = new Date();
-  const firstDayOfMonth = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth(),
+  const currentYear = currentDate.getFullYear();
+  const currentMonth = currentDate.getMonth();
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const currentMonthStart = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth(),
     1
   );
-  const lastDayOfMonth = new Date(
-    currentDate.getFullYear(),
-    currentDate.getMonth() + 1,
-    0
+  const nextMonthStart = new Date(
+    new Date().getFullYear(),
+    new Date().getMonth() + 1,
+    1
   );
 
-  const totalSales = await prisma.order.aggregate({
+  const totalSales = await prisma.order.groupBy({
+    by: ["createdAt"],
     _sum: {
       price: true,
     },
     where: {
       createdAt: {
-        gte: firstDayOfMonth,
-        lte: lastDayOfMonth,
+        gte: currentMonthStart,
+        lt: nextMonthStart,
       },
+    },
+    orderBy: {
+      createdAt: "asc",
     },
   });
 
-  return totalSales;
+  const salesArray = Array.from({ length: daysInMonth }, (_, i) => ({
+    day: i + 1,
+    totalSales: 0,
+  }));
+
+  // Fill in sales data
+  totalSales.forEach((sale) => {
+    const saleDate = new Date(sale.createdAt);
+    const day = saleDate.getDate();
+    salesArray[day - 1].totalSales = sale._sum.price || 0;
+  });
+
+  return salesArray;
 }
 
 const page = async () => {
@@ -42,6 +59,9 @@ const page = async () => {
     redirect("/");
   }
   const sales = await getSalesByDay();
+  const sum = sales
+    .map((sale) => sale.totalSales)
+    .reduce((total, sum) => total + sum);
   return (
     <div className="px-4 flex flex-col lg:px-[20%] py-[90px] lg:py-32">
       <h1
@@ -49,15 +69,34 @@ const page = async () => {
         Panel administratora
       </h1>
       <div className="flex flex-col">
-        <h2>Sprzedaż</h2>
         <div className=" my-4 grid">
           <div className="border-[1px]  p-8 rounded-md">
             <p className="text-sm">Zarobki w tym miesiącu</p>
-            <h1 className="font-bold text-4xl text-green-700">
-              {(sales._sum.price! / 100).toFixed(2)}zł
+            <h1 className="font-bold text-4xl my-2 text-green-700">
+              {(sum! / 100).toFixed(2)}
+              zł
             </h1>
             <div>
-              <DaysInMonth />
+              {
+                //map days
+                <ul className="grid grid-cols-7 gap-2">
+                  {sales.map((data, index) => (
+                    <li
+                      className="relative border-[1px] rounded-md aspect-square p-2 flex justify-center items-center"
+                      key={index}>
+                      <p className="font-medium absolute top-2 left-2">
+                        {data.day}
+                      </p>
+                      <h2
+                        className={`text-lg font-bold ${
+                          data.totalSales === 0 && "text-gray-500"
+                        }  ${data.totalSales > 0 && "text-green-500"}`}>
+                        {(data.totalSales / 100).toFixed(2)} zł
+                      </h2>
+                    </li>
+                  ))}
+                </ul>
+              }
             </div>
           </div>
         </div>

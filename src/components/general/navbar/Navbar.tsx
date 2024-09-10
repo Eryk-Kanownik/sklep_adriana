@@ -24,8 +24,6 @@ const Navbar = () => {
     });
   }, []);
 
-  console.log(session.status);
-
   return (
     <nav
       className={`text-red-500  ${
@@ -34,6 +32,11 @@ const Navbar = () => {
       <NavbarLogo />
       <ul
         className={`hidden overflow-hidden md:flex gap-3 md:gap-5 md:max-h-[600px] md:flex-row md:items-center md:mt-0 origin-top`}>
+        <NavbarListItem
+          path="/"
+          text="Strona główna"
+          onClick={onClickNavbarListItem}
+        />
         <NavbarListItem
           path="/products"
           text="Przeglądaj produkty"
@@ -71,6 +74,11 @@ const Navbar = () => {
         className={` flex flex-col gap-2 overflow-hidden ${
           isMenuUnfolded ? "max-h-[600px] mt-3" : "max-h-0 mt-0"
         } md:hidden`}>
+        <NavbarListItem
+          path="/"
+          text="Strona główna"
+          onClick={onClickNavbarListItem}
+        />
         <NavbarListItem
           path="/products"
           text="Przeglądaj produkty"

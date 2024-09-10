@@ -4,6 +4,7 @@ import CreateSizeCard from "../general/cards/CreateSizeCard";
 import ImageCardForForm from "../general/cards/ImageCardForForm";
 import sortSizes from "@/lib/sort-sizes/sort-sizes";
 import createProduct from "@/lib/actions/create-product";
+import { Url } from "url";
 
 const CreateProductForm = () => {
   const [data, setData] = useState<IData>({
@@ -16,7 +17,21 @@ const CreateProductForm = () => {
   const [availibleSizes, setAvailibleSizes] = useState<null | React.ReactNode>(
     null
   );
-  const [images, setImages] = useState<null | FileList>(null);
+  const [images, setImages] = useState<null | { file: File; url: string }[]>(
+    null
+  );
+
+  const onImagesChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    let f = e.target.files;
+    const files = Array.from(f!);
+    let urls = files.map((file) => {
+      return {
+        file,
+        url: URL.createObjectURL(file),
+      };
+    });
+    setImages(urls);
+  };
 
   //size form
   const [sizeData, setSizeData] = useState<ISizeData>({
@@ -108,6 +123,11 @@ const CreateProductForm = () => {
     price === 0
       ? true
       : false;
+
+  const onImageDelete = (index: number) => {
+    let imgs = images!.filter((img, index) => index !== index);
+    setImages(imgs);
+  };
 
   return (
     <form
@@ -206,13 +226,23 @@ const CreateProductForm = () => {
           className="border-2 px-4 py-2 rounded-sm cursor-pointer font-bold hover:border-red-700  duration-200">
           Prześlij zdjęcia
         </label>
-        <input id="upload" type="file" className="hidden" />
+        <input
+          id="upload"
+          type="file"
+          multiple
+          accept=".jpg, .png"
+          className="hidden"
+          onChange={onImagesChange}
+        />
         <div className="mt-5 grid grid-cols-2 sm:grid-cols-3 2xl:grid-cols-4 gap-4">
-          <ImageCardForForm order={1} />
-          <ImageCardForForm order={2} />
-          <ImageCardForForm order={3} />
-          <ImageCardForForm order={4} />
-          <ImageCardForForm order={5} />
+          {images?.map(({ file, url }: any, index: number) => (
+            <ImageCardForForm
+              key={index}
+              order={index}
+              src={url}
+              deleteImage={onImageDelete}
+            />
+          ))}
         </div>
       </div>
       <button
